@@ -1,0 +1,38 @@
+<idea-plugin version="2">
+    <id>com.othoslabs.InspectionKeyBinder</id>
+    <name>InspectionKeyBinder</name>
+    <version>1.0</version>
+    <vendor email="othoslabs@gmail.com" url="http://othoslabs.com">Othos Labs</vendor>
+
+    <description><![CDATA[
+      Allows keyboard shorcuts to be bound to toggle inspections such as the spelling inspection.
+      CTRL+K + CTRL+S is the default key binding for toggle spelling.
+    ]]></description>
+
+    <change-notes><![CDATA[ ]]> </change-notes>
+
+    <idea-version since-build="141.0"/>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <projectService serviceInterface="com.othoslabs.KeyBindSettings" serviceImplementation="com.othoslabs.KeyBindSettings"/>
+        <projectConfigurable groupId="editor" instance="com.othoslabs.KeysSettingsManager" id="settings.inspectionkeybinder.inspectionbindings" />
+    </extensions>
+    <actions>
+        <group id="InspectionKeyBinder" text="InspectionKeyBinder Menu" description="InspectionKeyBinder">
+            <action id="InspectionKeyBinder.ToggleSpellCheck" class="com.othoslabs.actions.SpellCheckToggleAction" text="Toggle Spelling Inspection" description="Toggle Spelling Inspection">
+                <keyboard-shortcut first-keystroke="control K" second-keystroke="control S" keymap="$default"/>
+            </action>
+
+            <action id="InspectionKeyBinder.CustomInspection1" class="com.othoslabs.actions.CustomInspectionToggleAction" text="Toggle Custom Inspection #1" description="Toggle Custom Inspection #1">
+                <keyboard-shortcut first-keystroke="control K" second-keystroke="control 1" keymap="$default"/>
+            </action>
+            <action id="InspectionKeyBinder.CustomInspection2" class="com.othoslabs.actions.CustomInspectionToggleAction2" text="Toggle Custom Inspection #2" description="Toggle Custom Inspection #2">
+                <keyboard-shortcut first-keystroke="control K" second-keystroke="control 2" keymap="$default"/>
+            </action>
+            
+            <action id="InspectionKeyBinder.CustomInspection3" class="com.othoslabs.actions.CustomInspectionToggleAction3" text="Toggle Custom Inspection #3" description="Toggle Custom Inspection #3">
+                <keyboard-shortcut first-keystroke="control K" second-keystroke="control 3" keymap="$default"/>
+            </action>
+        </group>
+    </actions>
+</idea-plugin>
