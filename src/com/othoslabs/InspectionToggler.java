@@ -4,6 +4,7 @@ import com.intellij.codeInsight.daemon.DaemonCodeAnalyzer;
 import com.intellij.codeInsight.daemon.HighlightDisplayKey;
 import com.intellij.codeInspection.InspectionProfile;
 import com.intellij.codeInspection.ex.InspectionProfileImpl;
+import com.intellij.codeInspection.ex.InspectionProfileModifiableModel;
 import com.intellij.openapi.project.Project;
 import com.intellij.profile.codeInspection.InspectionProjectProfileManager;
 import com.intellij.psi.PsiElement;
@@ -34,16 +35,16 @@ public class InspectionToggler {
 
     public static boolean isInspectionEnabled(@NonNls String shortName, PsiElement context) {
         final InspectionProjectProfileManager profileManager = InspectionProjectProfileManager.getInstance(context.getProject());
-        final InspectionProfile profile = profileManager.getInspectionProfile();
+        final InspectionProfile profile = profileManager.getCurrentProfile();
 
         return profile.isToolEnabled(HighlightDisplayKey.find(shortName), context);
     }
 
     private static void modifyAndCommitProjectProfile(Consumer<InspectionProfileImpl> action, Project project) throws IOException {
         InspectionProjectProfileManager profileManager = InspectionProjectProfileManager.getInstance(project);
-        InspectionProfile inspectionProfile = profileManager.getInspectionProfile();
+        InspectionProfileImpl inspectionProfile = profileManager.getCurrentProfile();
 
-        InspectionProfileImpl model = (InspectionProfileImpl) inspectionProfile.getModifiableModel();
+        InspectionProfileModifiableModel model = inspectionProfile.getModifiableModel();
         action.consume(model);
         model.commit();
     }

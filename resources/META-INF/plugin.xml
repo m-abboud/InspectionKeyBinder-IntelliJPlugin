@@ -11,7 +11,7 @@
 
     <change-notes><![CDATA[ ]]> </change-notes>
 
-    <idea-version since-build="141.0"/>
+    <idea-version since-build="171.0"/>
 
     <extensions defaultExtensionNs="com.intellij">
         <projectService serviceInterface="com.othoslabs.KeyBindSettings" serviceImplementation="com.othoslabs.KeyBindSettings"/>
