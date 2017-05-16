@@ -24,10 +24,7 @@ public class InspectionToggler {
             return;
 
         modifyAndCommitProjectProfile(modifiableModel -> {
-            if (isInspectionEnabled(toolId, file))
-                modifiableModel.disableTool(toolId, project);
-            else
-                modifiableModel.enableTool(toolId, project);
+            modifiableModel.setToolEnabled(toolId, !isInspectionEnabled(toolId, file));
         }, project);
 
         DaemonCodeAnalyzer.getInstance(project).restart();
