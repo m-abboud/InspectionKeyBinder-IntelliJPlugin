@@ -1,7 +1,7 @@
 <idea-plugin version="2">
     <id>com.othoslabs.InspectionKeyBinder</id>
     <name>InspectionKeyBinder</name>
-    <version>1.1</version>
+    <version>1.2.2</version>
     <vendor email="othoslabs@gmail.com" url="http://othoslabs.com">Othos Labs</vendor>
 
     <description><![CDATA[
@@ -11,7 +11,7 @@
 
     <change-notes><![CDATA[ ]]> </change-notes>
 
-    <idea-version since-build="171.0"/>
+    <idea-version since-build="173.0"/>
 
     <extensions defaultExtensionNs="com.intellij">
         <projectService serviceInterface="com.othoslabs.KeyBindSettings" serviceImplementation="com.othoslabs.KeyBindSettings"/>
