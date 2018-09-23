@@ -7,4 +7,4 @@ You can set three custom inspection key bindings from IntelliJ's setting's windo
 
 CTRL+K + CTRL+[1,2,3] are the default key bindings for the 3 custom inspection binding settings. 
 
-http://mabboud.net/intellij-inspection-keyboard-binder/
+https://mabboud.net/intellij-inspection-keyboard-binder/
